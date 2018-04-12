@@ -1,0 +1,11 @@
+backend:
+  image: node:slim
+  ports:
+    - "9081:8081"
+  volumes:
+    - ./code:/code
+  command: bash -c "cd /code && npm install && node index.js"
+  links:
+    - mongo
+mongo:
+  image: mongo 
